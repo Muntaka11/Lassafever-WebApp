@@ -43,27 +43,26 @@ st.markdown(
 
 
 def signup_page():
-    with st.form("Sign Up")
+    st.header("Sign Up")
     username = st.text_input("username")
     password = st.text_input("password", type="password")
 
-    if st.form_submit_button("Create Account"):
+    if st.button("Create Account"):
         if username and password:
             add_user(username, password)
             st.session_state.page = "login"
             st.success("Account created! Now log in.")
         else:
             st.warning("Please fill in both fields.")
-            
     st.write("Already have an account? Login")
     if st.button("Login"):
         st.session_state.page = "login"
 def login_page():
-    with st.form("Login")
+    st.header("Login")
     username = st.text_input("username")
     password = st.text_input("password", type="password")
 
-    if st.form_submit_button("Login"):
+    if st.button("Login"):
         user = Authenticate_user(username, password)
         if user:
             st.success("Login successful!")
