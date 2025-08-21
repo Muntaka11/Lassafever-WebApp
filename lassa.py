@@ -99,9 +99,9 @@ def prediction_page():
         features = np.array([[a1,a2,a3,a4,a5,a6,a7,a8,b1,b2,b3,b4,b5]])
         Outcome = classifier.predict(features)
         if Outcome[0] == 1:
-            st.success("you have Lassa Fever")
+            st.success("Positive")
         else:
-            st.success("you do not have Lassa Fever")
+            st.success("Negative")
 
     if st.sidebar.button("Logout"):
         st.session_state.logged_in = False
