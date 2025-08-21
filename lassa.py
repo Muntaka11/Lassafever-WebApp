@@ -30,11 +30,14 @@ if "current_user" not in st.session_state:
 st.markdown(
         """
         <style>
-        div.stButton > button {
-                background-color: blue;
-                color: white;
-                font-weight: bold;
+        div.stButton > button:first-child {
+            background-color: #1E90FF;
+            color: white;
+            border; none;
                 }
+        div.stButton > button:first-child:hover {
+            background-color: #1E90FF;
+            }
         </style>
     """, unsafe_allow_html= True)
 
@@ -51,7 +54,9 @@ def signup_page():
             st.success("Account created! Now log in.")
         else:
             st.warning("Please fill in both fields.")
-
+    st.write("Already have an account? Login")
+    if st.button("Login"):
+        st.session_state.page = "login"
 def login_page():
     st.header("Login")
     username = st.text_input("username")
