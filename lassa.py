@@ -54,6 +54,7 @@ def signup_page():
             st.success("Account created! Now log in.")
         else:
             st.warning("Please fill in both fields.")
+            
     st.write("Already have an account? Login")
     if st.button("Login"):
         st.session_state.page = "login"
@@ -71,6 +72,9 @@ def login_page():
             st.session_state.page = "prediction"
         else:
             st.error("Incorrect username or password")
+    st.write("new user? Sign Up")
+    if st.button("Sign Up"):
+        st.session_state.page = "Sign Up"
 
 def prediction_page():
     st.write("Enter symptoms to get a prediction")
