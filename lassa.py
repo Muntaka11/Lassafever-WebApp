@@ -3,7 +3,7 @@ import pickle
 import numpy as  np
 import sqlite3 
 
-pickle_in = open("classifier.pkl", "rb")
+pickle_in = open("model.pkl", "rb")
 classifier = pickle.load(pickle_in)
 
 connection = sqlite3.connect("Users.db",check_same_thread=False)
@@ -103,10 +103,6 @@ def prediction_page():
         else:
             st.success("Negative")
 
-    if st.sidebar.button("Logout"):
-        st.session_state.logged_in = False
-        st.session_state.page = "login"
-        st.session_state.current_user = ""
 
 if st.session_state.logged_in:
     prediction_page()
